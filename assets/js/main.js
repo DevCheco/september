@@ -1,9 +1,18 @@
 $(document).ready(function () {
+    const isMobile = window.matchMedia('(max-width: 600px)').matches;
+
     // Al cargar la página, ocultamos las cortinas
     $('.left-curtain').css('width', '0%');
     $('.right-curtain').css('width', '0%');
 
+    if (isMobile) {
+        $('.tap-hint').fadeIn(400);
+    }
+
     $('.valentines-day').click(function () {
+        $(this).addClass('clicked');
+        $('.tap-hint').stop(true).hide();
+
         // Animación de desvanecimiento de los elementos del sobre
         $('.envelope').css({ 'animation': 'fall 3s linear 1', '-webkit-animation': 'fall 3s linear 1' });
         $('.envelope').fadeOut(800, function () {

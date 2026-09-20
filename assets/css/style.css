@@ -201,6 +201,24 @@ body {
   transition: 0.5s;
 }
 
+.tap-hint {
+  position: absolute;
+  left: 50%;
+  top: 235px;
+  transform: translateX(-50%);
+  z-index: 5;
+  color: #fff;
+  background: rgba(224, 25, 17, 0.9);
+  border-radius: 999px;
+  padding: 8px 16px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+  display: none;
+  animation: tap-pulse 1s ease-in-out infinite alternate;
+}
+
 .valentines-day:hover .heart {
   transform: translateY(-50px) rotate(-45deg);
 }
@@ -225,6 +243,17 @@ body {
   }
 }
 
+@keyframes tap-pulse {
+  0% {
+    transform: translateX(-50%) scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateX(-50%) scale(1.08);
+    opacity: 1;
+  }
+}
+
 /* Estilos para dispositivos móviles */
 @media screen and (max-width: 600px) {
   #card {
@@ -241,5 +270,13 @@ body {
 
   .text {
     font-size: 1em; /* Ajuste del tamaño de fuente */
+  }
+
+  .tap-hint {
+    display: block;
+  }
+
+  .valentines-day.clicked .tap-hint {
+    display: none;
   }
 }
